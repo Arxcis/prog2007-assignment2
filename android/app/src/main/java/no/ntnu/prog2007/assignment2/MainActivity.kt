@@ -13,7 +13,10 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    var groceryList = arrayListOf("hei", "på", "deg")
+    private var groceryList = arrayListOf(
+        GroceryListItem("Orange 🍊"),
+        GroceryListItem("Milk 🥛"),
+        GroceryListItem("Bread 🍞"))
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

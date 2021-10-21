@@ -44,11 +44,13 @@ class GroceryListAdapter(private val groceryList: ArrayList<GroceryListItem>) :
 
     fun popFirst() {
         when (groceryList.size) {
-            in 1..Int.MAX_VALUE -> { groceryList.removeAt(1); notifyDataSetChanged()}
+            in 1..Int.MAX_VALUE -> {
+                groceryList.removeAt(0); notifyDataSetChanged()
+            }
         }
     }
 
     fun clear() {
-        groceryList.clear()
+        groceryList.clear(); notifyDataSetChanged()
     }
 }

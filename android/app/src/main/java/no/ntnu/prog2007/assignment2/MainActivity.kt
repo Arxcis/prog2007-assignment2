@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
 
         // 3. Delete listener
         Delete.setOnClickListener {
-            adapter.popFirst()
+            adapter.deleteSelected()
         }
         // 4. Clear listener
         Clear.setOnClickListener {

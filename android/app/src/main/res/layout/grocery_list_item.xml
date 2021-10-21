@@ -18,8 +18,8 @@
             android:text=""
             android:textSize="20sp" />
 
-        <RadioButton
-            android:id="@+id/GroceryRowRadio"
+        <CheckBox
+            android:id="@+id/GroceryRowCheckbox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 

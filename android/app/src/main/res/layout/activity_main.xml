@@ -14,7 +14,7 @@
         android:paddingVertical="40dp">
 
         <EditText
-            android:id="@+id/GroceryList"
+            android:id="@+id/GroceryListName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Grocery List Name..."
@@ -61,6 +61,7 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/GroceryList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class GroceryListAdapter(private val dataSet: Array<String>) :
+class GroceryListAdapter(private val groceryList: Collection<String>) :
     RecyclerView.Adapter<GroceryListAdapter.ViewHolder>() {
 
     /**
@@ -14,19 +14,15 @@ class GroceryListAdapter(private val dataSet: Array<String>) :
      * (custom ViewHolder).
      */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val textView: TextView
+        val text: TextView =  view.findViewById(R.id.GroceryListItemText)
 
-        init {
-            // Define click listener for the ViewHolder's View.
-            textView = view.findViewById(R.id.textView)
-        }
     }
 
     // Create new views (invoked by the layout manager)
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         // Create a new view, which defines the UI of the list item
         val view = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.text_row_item, viewGroup, false)
+            .inflate(R.layout.grocery_list_item, viewGroup, false)
 
         return ViewHolder(view)
     }
@@ -36,10 +32,10 @@ class GroceryListAdapter(private val dataSet: Array<String>) :
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        viewHolder.textView.text = dataSet[position]
+        viewHolder.text.text = groceryList.elementAt(position)
     }
 
     // Return the size of your dataset (invoked by the layout manager)
-    override fun getItemCount() = dataSet.size
+    override fun getItemCount() = groceryList.size
 
 }

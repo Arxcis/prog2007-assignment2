@@ -37,12 +37,17 @@ class GroceryListAdapter(private val groceryList: ArrayList<GroceryListItem>) :
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
         holder.text.text = groceryList[position].description
-        holder.check.isSelected = groceryList[position].selected
-        if (position == 0) println(groceryList)
+        holder.check.isChecked = groceryList[position].selected
+
         holder.row.setOnClickListener {
-            holder.check.performClick()
+            groceryList[position] = groceryList[position].copy(selected = !groceryList[position].selected)
+            notifyItemChanged(position)
+            Log.i("onBindViewHolder","Click row!")
         }
-        holder.check.setOnCheckedChangeListener { _, b -> groceryList[position].selected = b; println(groceryList) }
+        holder.check.setOnClickListener {
+            Log.i("onBindViewHolder","Click check!")
+            groceryList[position] = groceryList[position].copy(selected = !groceryList[position].selected)
+        }
     }
 
     // Return the size of your dataset (invoked by the layout manager)
@@ -54,7 +59,6 @@ class GroceryListAdapter(private val groceryList: ArrayList<GroceryListItem>) :
     }
 
     fun deleteSelected() {
-        println(groceryList)
         groceryList.removeIf { item -> item.selected }; notifyDataSetChanged()
     }
 

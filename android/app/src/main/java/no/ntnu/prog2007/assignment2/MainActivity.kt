@@ -30,24 +30,18 @@ class MainActivity : AppCompatActivity() {
             when {
                 AddAnItem.text.isEmpty() -> {println("Error adding item to list: Text is empty")};// @TODO You have to type something in this textbox first
                 else -> {
-                    Log.println(Log.INFO, "MainActivity", "Adding item to list: ${AddAnItem.text}")
-                    groceryList.add(AddAnItem.text.toString())
-                    adapter.notifyDataSetChanged()
-                    AddAnItem.text.clear()
+                    adapter.add(GroceryListItem(AddAnItem.text.toString(), false))
                 }
             }
         }
 
         // 3. Delete listener
         Delete.setOnClickListener {
-            when (groceryList.size) {
-                0 -> { } // @TODO There are no items left in your grocery list
-                else -> {
-                    Log.println(Log.INFO, "MainActivity", "Removing the last item in the list")
-                    groceryList.removeAt(groceryList.size-1)
-                    adapter.notifyDataSetChanged();
-                }
-            }
+            adapter.popFirst()
+        }
+        // 4. Clear listener
+        Clear.setOnClickListener {
+            adapter.clear()
         }
     }
 

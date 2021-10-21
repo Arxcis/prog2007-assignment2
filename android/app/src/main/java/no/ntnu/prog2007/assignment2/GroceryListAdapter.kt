@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class GroceryListAdapter(private val groceryList: Collection<String>) :
+class GroceryListAdapter(private val groceryList: ArrayList<GroceryListItem>) :
     RecyclerView.Adapter<GroceryListAdapter.ViewHolder>() {
 
     /**
@@ -32,10 +32,23 @@ class GroceryListAdapter(private val groceryList: Collection<String>) :
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        viewHolder.text.text = groceryList.elementAt(position)
+        viewHolder.text.text = groceryList.elementAt(position).description
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     override fun getItemCount() = groceryList.size
 
+    fun add(item: GroceryListItem) {
+        groceryList.add(item); notifyDataSetChanged()
+    }
+
+    fun popFirst() {
+        when (groceryList.size) {
+            in 1..Int.MAX_VALUE -> { groceryList.removeAt(1); notifyDataSetChanged()}
+        }
+    }
+
+    fun clear() {
+        groceryList.clear()
+    }
 }

@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
                 AddAnItem.text.isEmpty() -> {println("Error adding item to list: Text is empty")};// @TODO You have to type something in this textbox first
                 else -> {
                     adapter.add(GroceryListItem(AddAnItem.text.toString(), false))
+                    AddAnItem.text.clear()
                 }
             }
         }

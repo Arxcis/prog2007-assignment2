@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         GroceryList.layoutManager = LinearLayoutManager(this)
 
 
-        // 2. Add listener
+        // 2. Add click listener
         Add.setOnClickListener {
             when {
                 AddAnItem.text.isEmpty() -> {println("Error adding item to list: Text is empty")};// @TODO You have to type something in this textbox first
@@ -39,11 +39,12 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // 3. Delete listener
+        // 3. Delete click listener
         Delete.setOnClickListener {
             adapter.deleteSelected()
         }
-        // 4. Clear listener
+        
+        // 4. Clear click listener
         Clear.setOnClickListener {
             adapter.clear()
         }

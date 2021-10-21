@@ -17,9 +17,9 @@
             android:id="@+id/GroceryList"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Grocery List Name..."
             android:minHeight="48dp"
-            android:text="<Grocery List>"
-            android:textSize="40sp" />
+            android:textSize="30sp" />
 
         <EditText
             android:id="@+id/AddAnItem"
@@ -27,9 +27,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:ems="10"
+            android:hint="Add an Item..."
             android:inputType="textPersonName"
-            android:minHeight="48dp"
-            android:text="Add an item..." />
+            android:minHeight="48dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -63,6 +63,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:layout_weight="20" />
 
     </LinearLayout>

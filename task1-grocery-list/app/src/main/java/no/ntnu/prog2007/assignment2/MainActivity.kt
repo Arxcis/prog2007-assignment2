@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         Delete.setOnClickListener {
             adapter.deleteSelected()
         }
-        
+
         // 4. Clear click listener
         Clear.setOnClickListener {
             adapter.clear()

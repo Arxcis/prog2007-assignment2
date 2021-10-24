@@ -34,17 +34,3 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-// https://www.geeksforgeeks.org/how-to-load-any-image-from-url-without-using-any-dependency-in-android/
-fun loadImage(executor: ExecutorService, handler: Handler, imageView: ImageView, url: String) {
-    executor.execute {
-        val url =
-            URL(url);
-
-        val stream = url.openStream()
-        val image = BitmapFactory.decodeStream(stream)
-
-        handler.post {
-            imageView.setImageBitmap(image)
-        }
-    }
-}

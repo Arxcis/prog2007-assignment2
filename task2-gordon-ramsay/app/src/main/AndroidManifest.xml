@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Task2GordonRamsey">
         <activity
-            android:name=".Recipes"
+            android:name=".RecipesActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

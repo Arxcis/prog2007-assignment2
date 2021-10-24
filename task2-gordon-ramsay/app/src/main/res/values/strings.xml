@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Task2-GordonRamsey</string>
     <string name="profile_picture_description">Picture of Gordon Ramsay and his wife</string>
+    <string name="all_recipes">All recipes</string>
 </resources>

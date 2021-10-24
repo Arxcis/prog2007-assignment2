@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        
+
         // https://www.geeksforgeeks.org/how-to-load-any-image-from-url-without-using-any-dependency-in-android/
         val executor = Executors.newSingleThreadExecutor()
         val handler = Handler(Looper.getMainLooper())

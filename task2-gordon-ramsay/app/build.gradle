@@ -7,7 +7,7 @@ android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "no.ntnu.prog2007.assignment2.task2GordonRamsay"
+        applicationId "no.ntnu.prog2007.assignment2.task2_gordonramsey"
         minSdk 31
         targetSdk 31
         versionCode 1

@@ -1,4 +1,4 @@
-package no.ntnu.prog2007.assignment2.task2GordonRamsay
+package no.ntnu.prog2007.assignment2.task2_gordonramsey
 
 import org.junit.Test
 

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Innlevering 2</string>
+    <string name="grocery_list_name_hint">Handlelistenavn...</string>
+    <string name="add_an_item_hint">Navn på produkt...</string>
+    <string name="add">Legg til</string>
+    <string name="delete">Slett</string>
+    <string name="clear">Tøm</string>
+</resources>

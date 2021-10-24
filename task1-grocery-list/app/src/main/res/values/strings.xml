@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">Assignment2</string>
+    <string name="app_name">Assignment 2</string>
+    <string name="grocery_list_name_hint">Grocery List Name...</string>
+    <string name="add_an_item_hint">Name of product...</string>
+    <string name="add">Add</string>
+    <string name="delete">Delete</string>
+    <string name="clear">Clear</string>
 </resources>

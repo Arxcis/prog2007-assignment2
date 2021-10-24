@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -17,9 +16,11 @@
             android:id="@+id/GroceryListName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Grocery List Name..."
+            android:hint="@string/grocery_list_name_hint"
             android:minHeight="48dp"
-            android:textSize="30sp" />
+            android:textSize="30sp"
+            android:autofillHints="name"
+            android:inputType="text"/>
 
         <EditText
             android:id="@+id/AddAnItem"
@@ -27,9 +28,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:ems="10"
-            android:hint="Add an Item..."
-            android:inputType="textPersonName"
-            android:minHeight="48dp" />
+            android:hint="@string/add_an_item_hint"
+            android:inputType="text"
+            android:minHeight="48dp"
+            android:autofillHints="name"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="2pt"
                 android:layout_weight="1"
-                android:text="Add" />
+                android:text="@string/add" />
 
             <Button
                 android:id="@+id/Delete"
@@ -52,7 +54,7 @@
                 android:layout_height="match_parent"
                 android:layout_marginHorizontal="2pt"
                 android:layout_weight="1"
-                android:text="Delete" />
+                android:text="@string/delete" />
 
             <Button
                 android:id="@+id/Clear"
@@ -60,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="2pt"
                 android:layout_weight="1"
-                android:text="Clear" />
+                android:text="@string/clear" />
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView

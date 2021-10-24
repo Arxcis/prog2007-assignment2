@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.LinearLayout
-import android.widget.RadioButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
@@ -40,10 +39,11 @@ class GroceryListAdapter(private val groceryList: ArrayList<GroceryListItem>) :
         holder.check.isChecked = groceryList[position].selected
 
         holder.row.setOnClickListener {
+            Log.i("onBindViewHolder","Click row!")
             groceryList[position] = groceryList[position].copy(selected = !groceryList[position].selected)
             notifyItemChanged(position)
-            Log.i("onBindViewHolder","Click row!")
         }
+
         holder.check.setOnClickListener {
             Log.i("onBindViewHolder","Click check!")
             groceryList[position] = groceryList[position].copy(selected = !groceryList[position].selected)

@@ -3,7 +3,9 @@
     package="no.ntnu.prog2007.assignment2.task2_gordonramsey">
 
     <!-- Permissions -->
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
 
     <application
 

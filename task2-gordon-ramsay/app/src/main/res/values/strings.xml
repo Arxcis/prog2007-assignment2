@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">Task2GordonRamsay App</string>
+    <string name="app_name">Gordon Ramsaynator</string>
+    <string name="profile_name">Gordon Ramsay</string>
+    <string name="profile_picture_description">Picture of Gordon Ramsay and his wife</string>
+    <string name="all_recipes">All recipes</string>
+    <string name="recipe_content_description">Image of recipe</string>
+    <string name="recipes_title">Gordon Ramsay > Recipes</string>
+    <string name="recipe_title">Gordon Ramsay > Recipe</string>
+    <string name="back">Back</string>
 </resources>

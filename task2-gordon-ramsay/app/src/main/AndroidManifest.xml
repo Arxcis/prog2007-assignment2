@@ -13,10 +13,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Task2GordonRamsey">
         <activity
+            android:name=".RecipeActivity"
+            android:exported="true"
+            android:label="@string/recipe_title"/>
+        <activity
             android:name=".RecipesActivity"
+            android:label="@string/recipes_title"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
+            android:label="@string/profile_name"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

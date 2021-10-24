@@ -5,12 +5,12 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk 29
 
     defaultConfig {
         applicationId "no.ntnu.prog2007.assignment2.task2_gordonramsey"
-        minSdk 31
-        targetSdk 31
+        minSdk 23
+        targetSdk 29
         versionCode 1
         versionName "1.0"
 
@@ -42,6 +42,7 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
-    // Kotlin coroutines DSL
+    // Custom implementations
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
+    implementation("org.jsoup:jsoup:1.14.3")
 }

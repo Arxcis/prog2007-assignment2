@@ -1,5 +1,7 @@
 package no.ntnu.prog2007.assignment2.task2_gordonramsey
 
+import android.content.Intent
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -15,24 +17,38 @@ import kotlinx.android.synthetic.main.activity_recipes.*
 import java.util.concurrent.Executors
 
 class RecipesActivity : AppCompatActivity() {
-    private var recipes = arrayListOf<Recipe>(Recipe(
-        title = "CARAMELIZED ONION EVERYTHING DIP",
-        description = "Combining everyone’s favorite condiments into one seriously savory umami-bomb takes minimal effort, but yields maximum reward. This creamy, crunchy, tangy dip will have your guests begging for it’s return at the next tailgate or picnic ",
-        imageURL = "https://www.gordonramsay.com/assets/Uploads/_resampled/CroppedFocusedImage192072050-50-EverythingDip.png"))
+    private val executor = Executors.newSingleThreadExecutor()
+    private val handler = Handler(Looper.getMainLooper())
+
+    private var recipes: ArrayList<Recipe> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recipes)
 
-        val adapter =  RecipeListAdapter(recipes)
+        // Init adapter with click-listener
+        val adapter = RecipeListAdapter(recipes) { recipe ->
+            val intent = Intent(this, RecipeActivity::class.java).apply {
+                putExtra("recipe", recipe)
+            }
+            startActivity(intent)
+        }
+
         RecipeList.adapter = adapter
         RecipeList.layoutManager = LinearLayoutManager(this)
+
+        loadRecipes(executor, handler, recipes, adapter, url = "https://www.gordonramsay.com/gr/recipes/")
+
+        RecipesBack.setOnClickListener { finish() }
     }
 }
 
 
-class RecipeListAdapter(private val recipeList: ArrayList<Recipe>) :
-    RecyclerView.Adapter<RecipeListAdapter.ViewHolder>() {
+
+class RecipeListAdapter(
+    private val recipeList: ArrayList<Recipe>,
+    private val onClick: (recipe: Recipe) -> Unit
+) : RecyclerView.Adapter<RecipeListAdapter.ViewHolder>() {
 
     private val executor = Executors.newSingleThreadExecutor()
     private val handler = Handler(Looper.getMainLooper())
@@ -42,9 +58,10 @@ class RecipeListAdapter(private val recipeList: ArrayList<Recipe>) :
      * (custom ViewHolder).
      */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val title: TextView? = view.findViewById(R.id.RecipeTitle)
-        val description: TextView? = view.findViewById(R.id.RecipeDescription)
-        val image: ImageView = view.findViewById(R.id.RecipeImage)
+        val row: View? = view.findViewById(R.id.RecipeRow)
+        val title: TextView? = view.findViewById(R.id.RecipeRowTitle)
+        val description: TextView? = view.findViewById(R.id.RecipeRowDescription)
+        val image: ImageView = view.findViewById(R.id.RecipeRowImage)
     }
 
     // Create new views (invoked by the layout manager)
@@ -63,6 +80,7 @@ class RecipeListAdapter(private val recipeList: ArrayList<Recipe>) :
         holder.title?.text = recipe.title
         holder.description?.text = recipe.description
 
+        holder.row?.setOnClickListener { onClick(recipe) }
         loadImage(executor, handler, holder.image, recipe.imageURL)
     }
 
